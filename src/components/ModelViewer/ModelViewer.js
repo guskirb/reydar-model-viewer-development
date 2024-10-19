@@ -11,14 +11,16 @@ import { useVariantUrl } from "../../hooks/useVariantUrl";
 import HandoffModal from "../Modals/Handoff/HandoffModal";
 import Hotspot from "../Hotspot/Hotspot";
 import { DimensionLines } from "../DimensionLines/DimensionLines";
+import { useCurrentProduct } from "../../contexts/useCurrentProduct";
 
 function ModelViewer() {
    const [modelViewerRendered, setModelViewerRendered] = useState(false);
    const [currentVariant, setCurrentVariant] = useCurrentVariant();
-   const [config] = useConfig();
-   const [action] = useAction();
+   const [currentProduct] = useCurrentProduct();
+   const [config, setConfig] = useConfig();
+   const [action, setAction] = useAction();
 
-   const showHotspots = action.ar || action.explore;
+   const showHotspots = action.ar || action.explore || action.add;
    const modelFormat = currentVariant.glb ? currentVariant.glb : currentVariant.gltf;
    const modelSrc = useVariantUrl(modelFormat);
 
@@ -35,16 +37,29 @@ function ModelViewer() {
          const modelViewer = document.querySelector("model-viewer");
          const position = modelViewer.positionAndNormalFromPoint(clientX, clientY);
 
+         if (!currentVariant.hotspots) {
+            currentVariant.hotspots = [];
+         }
+
          if (position) {
-            setCurrentVariant({
+            let currVar = {
                ...currentVariant, hotspots: [{
-                  id: (currentVariant.hotspots.length + 1).toString(),
+                  id: (currentVariant.hotspots ? currentVariant.hotspots.length + 1 : 1).toString(),
                   normal: position.normal,
                   position: position.position
                }, ...currentVariant.hotspots]
+            };
+
+            setCurrentVariant(currVar);
+            setConfig({
+               ...config,
+               products: config.products.map((product) => product.uuid !== currentProduct.uuid ? product : {
+                  ...currentProduct, variants: currentProduct.variants.map((variant) => variant.uuid !== currentVariant.uuid ? variant : currVar)
+               })
             })
          }
-         
+
+         setAction("explore")
       }
    }
 
