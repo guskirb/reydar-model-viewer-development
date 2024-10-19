@@ -18,9 +18,9 @@ export const EditHotspotModal = (props) => {
             </h2>
 
             <div className="edit-hotspot-modal__list">
-                <form>
-                    <label />
-                    <input type="text" value={props.hotspot.content} />
+                <form className="edit-hotspot-modal__form">
+                    <label>Hotspot Name</label>
+                    <input className="edit-hotspot-modal__input" type="text" value={props.hotspot.content} />
                 </form>
             </div>
         </Modal>
