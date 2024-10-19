@@ -1,0 +1,31 @@
+@import "../../../base/mixins.scss";
+
+.modal {
+   width: 100vw;
+   height: 100vh;
+   max-height: -webkit-fill-available;
+   position: absolute;
+   display: flex;
+   inset: 0;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--clr-grey700);
+   z-index: 4;
+
+   &__inner {
+      max-width: 90%;
+      position: relative;
+      text-align: center;
+      background-color: white;
+      border-radius: 1rem;
+   }
+
+   .button--close {
+      background-color: var(--clr-grey450);
+
+      &:hover {
+         background-color: var(--clr-grey300) !important;
+      }
+   }
+}

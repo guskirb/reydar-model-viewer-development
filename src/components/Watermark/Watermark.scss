@@ -1,0 +1,16 @@
+@import "../../base/constants.scss";
+
+.watermark {
+   width: 6rem;
+   opacity: 0.25;
+   --inset: 1rem;
+   position: fixed;
+   fill: var(--clr-grey600);
+   inset: auto var(--inset) var(--inset) auto;
+}
+
+@media only screen and (max-width: $break-tablet) {
+   .watermark {
+      inset: auto var(--inset) calc(var(--inset) + 3.5rem) auto;
+   }
+}

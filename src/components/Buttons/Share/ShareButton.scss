@@ -1,0 +1,8 @@
+@import "../../../base/mixins.scss";
+
+#shared-modal .modal__inner {
+   @include set-flex(center, center);
+   color: var(--brand-color);
+   text-align: center;
+   padding: 1rem 2rem;
+}

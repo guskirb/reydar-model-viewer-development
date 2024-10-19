@@ -1,0 +1,9 @@
+@import "../../../base/mixins.scss";
+
+.handoff-modal {
+   padding: 2rem 3rem;
+   line-height: 1;
+   width: 21rem;
+   gap: 1.5rem;
+   @include set-flex(center, space-between, column);
+}

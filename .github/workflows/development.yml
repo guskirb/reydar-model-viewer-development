@@ -1,0 +1,39 @@
+name: Development deployment
+
+on:
+   push:
+      branches:
+         - "development"
+
+jobs:
+   build:
+      runs-on: ubuntu-latest
+      steps:
+         - uses: actions/checkout@v1
+
+         - name: Cache Node Packages
+           id: cache-npm
+           uses: actions/cache@v3
+           env:
+              cache-name: cache-node-modules
+           with:
+              path: "**/node_modules"
+              key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+         - name: Install Dependencies
+           run: npm install
+
+         - name: Build Project
+           run: npm run build
+
+         - name: Deploy S3
+           uses: jakejarvis/s3-sync-action@master
+           with:
+              args: --acl public-read --follow-symlinks --delete
+           env:
+              AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+              AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+              AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+              AWS_REGION: "us-west-1"
+              SOURCE_DIR: "build"
+              DEST_DIR: "dev"

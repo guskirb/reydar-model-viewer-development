@@ -1,0 +1,85 @@
+@import "../../../base/mixins.scss";
+
+.action-btn {
+   background-color: var(--clr-grey300);
+   transition: background-color 350ms ease;
+   font-family: "Proxima Nova";
+   font-size: 1rem;
+   border: none;
+   position: relative;
+   border-radius: 0.8rem;
+   padding-inline: 1.5rem;
+   color: black;
+   min-height: 2.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   &__icon {
+      max-width: 1.4rem;
+      max-height: 1.3rem;
+      margin-inline: auto;
+   }
+   &__label {
+      font-weight: bold;
+      color: var(--brand-color);
+   }
+   svg {
+      font-size: 1.25rem;
+      color: var(--reydar-grey);
+   }
+}
+
+// Hover states
+@media (hover: hover) {
+   .action-btn:hover:not(button[disabled]) {
+      background-color: var(--clr-grey400);
+   }
+   .action-btn:active:not(button[disabled]) {
+      background-color: var(--clr-grey500);
+   }
+   .action-bar-list .action-btn:hover:not(button[disabled]) {
+      background-color: var(--clr-grey400);
+      .action-btn__label {
+         font-size: revert;
+      }
+      .action-btn__icon {
+         transform: scale(0);
+      }
+   }
+}
+
+// Disabled state
+button[disabled] {
+   cursor: default;
+   filter: grayscale(1) contrast(0.9);
+
+   img {
+      opacity: 0.4;
+   }
+}
+
+// Action buttons within Action List
+.action-bar-list .action-btn {
+   &__icon {
+      transition: transform 300ms ease;
+   }
+   &__label {
+      transition: font-size 300ms ease;
+      @include abs-center;
+      font-size: 0;
+   }
+   &-active {
+      background-color: var(--clr-grey400);
+      .action-btn__label {
+         font-size: revert;
+      }
+      .action-btn__icon {
+         transform: scale(0);
+      }
+   }
+}
+
+.active {
+   background-color: white;
+}

@@ -1,0 +1,32 @@
+@import "../../base/mixins.scss";
+@import "../../base/constants.scss";
+
+.model-title {
+   inset: auto auto var(--inset) var(--inset);
+   @include set-flex(center, space-between);
+   color: var(--clr-grey600);
+   position: fixed;
+   --inset: 1rem;
+   opacity: 0.25;
+   gap: 0.3rem;
+   z-index: 1;
+
+   h1 {
+      font-size: 1.35rem;
+      word-wrap: break-word;
+      span {
+         font-weight: normal;
+      }
+   }
+}
+
+@media only screen and (max-width: $break-tablet) {
+   .model-title {
+      bottom: 4.5rem;
+   }
+
+   .watermark + .model-title {
+      inset: auto auto 4.5rem var(--inset);
+      width: calc(100vw - 7rem);
+   }
+}

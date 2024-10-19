@@ -1,0 +1,83 @@
+@import "../../base/constants.scss";
+
+.product-selector {
+   height: 12rem;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: visibility 10ms ease 0ms, bottom 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   position: absolute;
+   bottom: 0;
+   z-index: 2;
+}
+
+.product-selector-hidden {
+   transition: bottom 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0ms ease 500ms;
+   bottom: -12rem !important;
+   visibility: hidden;
+}
+.product-selector .list-container {
+   /* background-color: rgba(255, 255, 255, 0.5); */
+   height: 100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.product-selector ul {
+   height: 82.5%;
+   list-style-type: none;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 1rem;
+   margin: 1rem 0;
+   padding: 0 1rem;
+   overflow: hidden;
+}
+
+.product-selector li {
+   border-radius: 1rem;
+   height: 100%;
+   padding-block: 0.5rem;
+}
+
+.product-selector ul::-webkit-scrollbar {
+   height: 0.3rem;
+   bottom: -100px;
+}
+
+.product-selector ul::-webkit-scrollbar-track {
+   background-color: rgb(200, 200, 200);
+   border-radius: 12rem;
+   margin: 0 0.5rem;
+}
+.product-selector ul::-webkit-scrollbar-thumb {
+   background-color: rgb(149, 149, 149);
+   border-radius: 12rem;
+}
+.product-selector ul::-webkit-scrollbar-thumb:hover {
+   background-color: var(--brand-color);
+}
+
+.grab-scroll {
+   overflow: auto;
+}
+
+// Tablet viewport
+@media only screen and (max-width: $break-tablet) {
+   .product-selector {
+      position: fixed;
+      height: 8rem;
+      bottom: 4rem;
+
+      ul {
+         height: 100%;
+      }
+   }
+}

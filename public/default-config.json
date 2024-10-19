@@ -1,0 +1,80 @@
+{
+   "uuid": "fd9c981e-ee59-11ec-8ea0-0242ac120002",
+   "background-environment": "neutral",
+   "background-color": "radial-gradient(#adadad, #ececec)",
+   "brand-color": "#ff6600",
+   "hotspot-color": "#ff6600",
+   "show-watermark": true,
+   "show-title": true,
+   "auto-rotate": true,
+   "auto-rotate-speed": "300%",
+   "actions": {
+      "ar": true,
+      "view": true,
+      "share": true,
+      "explore": true,
+      "fullscreen": true,
+      "information": true
+   },
+   "products": [
+      {
+         "uuid": "2148f749-166b-45a2-9bd0-cd2f965712c1",
+         "name": "Laptop",
+         "brand": "Hewlett-Packard",
+         "variants": [
+            {
+               "uuid": "a9231662-3f9f-4b46-9e99-fd987b134bd1",
+               "variant-name": "Open",
+               "description": "",
+               "price": "",
+               "glb": "a9231662-3f9f-4b46-9e99-fd987b134bd1.glb",
+               "gltf": "",
+               "usdz": "a9231662-3f9f-4b46-9e99-fd987b134bd1.usdz",
+               "thumbnail": "a9231662-3f9f-4b46-9e99-fd987b134bd1.jpg",
+               "hotspots": [
+                  {
+                     "id": "1",
+                     "position": {
+                        "x": "0.10943167557009126m",
+                        "y": "0.09503732154016681m",
+                        "z": "-0.13505512588996715m"
+                     },
+                     "normal": {
+                        "x": "0m",
+                        "y": "0.15695047289190772m",
+                        "z": "0.9876064747960123m"
+                     },
+                     "content-type": "text",
+                     "content": "OLED Screen"
+                  },
+                  {
+                     "id": "2",
+                     "position": {
+                        "x": "0.07572110965622553m",
+                        "y": "0.014915685169398785m",
+                        "z": "-0.034167796988096244m"
+                     },
+                     "normal": {
+                        "x": "0m",
+                        "y": "1m",
+                        "z": "0m"
+                     },
+                     "content-type": "text",
+                     "content": "Butterfly Keyboard"
+                  }
+               ]
+            },
+            {
+               "uuid": "945b9faf-49ed-4fa4-9d3f-30f72fafed0f",
+               "variant-name": "Closed",
+               "description": "",
+               "price": "",
+               "glb": "945b9faf-49ed-4fa4-9d3f-30f72fafed0f.glb",
+               "gltf": "",
+               "usdz": "945b9faf-49ed-4fa4-9d3f-30f72fafed0f.usdz",
+               "thumbnail": "945b9faf-49ed-4fa4-9d3f-30f72fafed0f.jpg"
+            }
+         ]
+      }
+   ]
+}

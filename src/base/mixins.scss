@@ -1,0 +1,38 @@
+@mixin set-flex($align, $justify, $direction: "") {
+   display: flex;
+   align-items: $align;
+   justify-content: $justify;
+
+   @if $direction != "" {
+      flex-direction: $direction;
+   }
+}
+
+@mixin reset-list {
+   padding: 0;
+   list-style: none;
+}
+
+@mixin reset-button {
+   border: none;
+   background-color: transparent;
+}
+
+@mixin abs-center {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+@mixin abs-center-x {
+   position: absolute;
+   transform: translateX(-50%);
+   left: 50%;
+}
+
+@mixin abs-center-y {
+   position: absolute;
+   transform: translateY(-50%);
+   top: 50%;
+}

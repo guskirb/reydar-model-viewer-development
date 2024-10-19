@@ -1,0 +1,15 @@
+:root {
+   --brand-color: #ff6600;
+   --hotspot-color: #ff6600;
+   --clr-grey300: hsla(0, 0%, 94%, 0.6);
+   --clr-grey400: hsl(0, 0%, 100%);
+   --clr-grey450: hsl(0, 0%, 90%);
+   --clr-grey500: hsla(0, 0%, 80%, 0.6);
+   --clr-grey600: #555760;
+   --clr-grey700: rgb(85, 87, 96, 0.5);
+   --clr-grey800: rgba(107, 107, 107, 0.5);
+}
+
+// Viewport breakpoints
+$break-mobile: 32rem;
+$break-tablet: 56em;

@@ -1,0 +1,14 @@
+button.button--close {
+   --inset: 0.6rem;
+   position: absolute;
+   padding: 0.5rem 1rem;
+   inset: var(--inset) var(--inset) auto auto;
+
+   svg {
+      font-size: 1.5rem;
+   }
+
+   &:hover {
+      background-color: var(--clr-grey500);
+   }
+}
