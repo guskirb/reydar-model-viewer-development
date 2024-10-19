@@ -16,7 +16,7 @@ function ModelViewer() {
    const [modelViewerRendered, setModelViewerRendered] = useState(false);
    const [currentVariant, setCurrentVariant] = useCurrentVariant();
    const [config] = useConfig();
-   const [action, , addHotspot] = useAction();
+   const [action] = useAction();
 
    const showHotspots = action.ar || action.explore;
    const modelFormat = currentVariant.glb ? currentVariant.glb : currentVariant.gltf;
@@ -30,7 +30,7 @@ function ModelViewer() {
    }, []);
 
    function handleAddHotspot(e) {
-      if (addHotspot) {
+      if (action.add) {
          const { clientX, clientY } = e;
          const modelViewer = document.querySelector("model-viewer");
          const position = modelViewer.positionAndNormalFromPoint(clientX, clientY);
@@ -44,6 +44,7 @@ function ModelViewer() {
                }, ...currentVariant.hotspots]
             })
          }
+         
       }
    }
 

@@ -7,6 +7,7 @@ const actionDefault = {
    select: false,
    ar: false,
    buy: false,
+   add: false,
    explore: false,
 };
 
@@ -16,13 +17,13 @@ export function useAction() {
 
 export function ActionProvider(props) {
    const [action, setActionState] = useState(actionDefault);
-   const [addHotspot, setAddHotspot] = useState(false);
 
    function setAction(actionInput) {
       const actionTemp = {
          view: false,
          select: false,
          buy: false,
+         add: false,
          explore: false,
       };
 
@@ -31,6 +32,6 @@ export function ActionProvider(props) {
    }
 
    return (
-      <actionContext.Provider value={[action, setAction, addHotspot, setAddHotspot]}>{props.children}</actionContext.Provider>
+      <actionContext.Provider value={[action, setAction]}>{props.children}</actionContext.Provider>
    );
 }

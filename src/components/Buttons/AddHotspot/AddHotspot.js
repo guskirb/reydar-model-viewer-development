@@ -1,15 +1,20 @@
-import ActionButtonStandard from "../Action/ActionButtonStandard"
 import { useAction } from "../../../contexts/useAction"
+import { useConfig } from "../../../contexts/useConfig";
+import ActionButtonViewerState from "../Action/ActionButtonViewerState";
 
 export const AddHotspot = () => {
-    const [, , addHotspot, setAddHotspot] = useAction();
-
-    function handleClick() {
-        console.log(addHotspot);
-        setAddHotspot(!addHotspot);
-    }
+    const [config] = useConfig();
+    const [action, setAction] = useAction();
 
     return (
-        <ActionButtonStandard label="Add" onClick={handleClick} className={addHotspot ? "active" : ""} />
+        config.actions.add ?? (
+            <ActionButtonViewerState
+                label="Add"
+                icon="fa-light fa-eye"
+                action="add"
+                active={action.add}
+                handleStateButtonClicked={setAction}
+            />
+        )
     )
 }

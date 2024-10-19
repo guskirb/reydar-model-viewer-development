@@ -8,6 +8,7 @@ import ExploreButton from "../Buttons/Explore/ExploreButton";
 import ViewButton from "../Buttons/View/ViewButton";
 import SelectButton from "../Buttons/Select/SelectButton";
 import BuyButton from "../Buttons/Buy/BuyButton";
+import { AddHotspot } from "../Buttons/AddHotspot/AddHotspot";
 
 const ActionBar = () => {
    return (
@@ -21,6 +22,7 @@ const ActionBar = () => {
             <SelectButton />
             <ExploreButton />
             <BuyButton />
+            <AddHotspot />
             <ArButton />
          </div>
 
