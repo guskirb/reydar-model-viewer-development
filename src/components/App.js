@@ -3,6 +3,7 @@ import { VariantProvider } from "../contexts/useCurrentVariant";
 import { ProductProvider } from "../contexts/useCurrentProduct";
 import { ActionProvider } from "../contexts/useAction";
 import { ConfigProvider } from "../contexts/useConfig";
+import { DimensionProvider } from "../contexts/useDimension";
 import { useGoogleAnalytics } from "../hooks/useGoogleAnalytics";
 
 import ModelViewer from "./ModelViewer/ModelViewer";
@@ -19,11 +20,13 @@ export default function App() {
          <VariantProvider>
             <ActionProvider>
                <ConfigProvider>
-                  <ActionBar />
-                  <ModelViewer />
-                  <ModelSelector />
-                  <Watermark />
-                  <ModelTitle />
+                  <DimensionProvider>
+                     <ActionBar />
+                     <ModelViewer />
+                     <ModelSelector />
+                     <Watermark />
+                     <ModelTitle />
+                  </DimensionProvider>
                </ConfigProvider>
             </ActionProvider>
          </VariantProvider>
