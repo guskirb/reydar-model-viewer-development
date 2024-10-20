@@ -28,7 +28,6 @@ export const DimensionLines = () => {
         svgLine.setAttribute('x2', dotHotspot2.canvasPosition.x);
         svgLine.setAttribute('y2', dotHotspot2.canvasPosition.y);
 
-        // use provided optional hotspot to tie visibility of this svg line to
         if (dimensionHotspot && !dimensionHotspot.facingCamera) {
           svgLine.classList.add('hide');
         }
