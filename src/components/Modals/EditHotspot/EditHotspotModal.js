@@ -59,12 +59,15 @@ export const EditHotspotModal = (props) => {
         props.updateModalState(false);
     }
 
+    function handleClose() {
+        setValue(props.hotspot.content);
+        setColor(config["hotspot-color"]);
+        props.updateModalState(false);
+    }
+
     return (
         <Modal canShow={props.canShow} id="edit-hotspot-modal">
-            <CloseButton closeModal={() => {
-                setValue(props.hotspot.content);
-                props.updateModalState(false);
-            }} />
+            <CloseButton closeModal={handleClose} />
             <h2 className="edit-hotspot-modal__title">
                 Edit Hotspot
             </h2>
