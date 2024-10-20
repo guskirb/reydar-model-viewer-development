@@ -7,12 +7,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { useCurrentVariant } from "../../contexts/useCurrentVariant";
 import { useConfig } from "../../contexts/useConfig";
 import { useAction } from "../../contexts/useAction";
+import { useCurrentProduct } from "../../contexts/useCurrentProduct";
 import { useVariantUrl } from "../../hooks/useVariantUrl";
 
 import HandoffModal from "../Modals/Handoff/HandoffModal";
 import Hotspot from "../Hotspot/Hotspot";
 import { DimensionLines } from "../DimensionLines/DimensionLines";
-import { useCurrentProduct } from "../../contexts/useCurrentProduct";
 
 function ModelViewer() {
    const [modelViewerRendered, setModelViewerRendered] = useState(false);

@@ -1,7 +1,10 @@
-import { useEffect } from "react";
 import "./DimensionLines.scss";
 
+import { useEffect } from "react";
+import { useDimension } from "../../contexts/useDimension";
+
 export const DimensionLines = () => {
+  const [dimension] = useDimension();
 
   useEffect(() => {
     const modelViewer = document.querySelector("#model");
@@ -123,7 +126,23 @@ export const DimensionLines = () => {
 
       modelViewer.addEventListener('camera-change', renderSVG);
     })
-  })
+  }, [])
+
+  useEffect(() => {
+    const modelViewer = document.querySelector("#model");
+    const dimElements = [...modelViewer.querySelectorAll('.dim'),
+    ...modelViewer.querySelectorAll('.dot'),
+    modelViewer.querySelector('#dimLines')];
+
+    dimElements.forEach((element) => {
+      if (dimension) {
+        element.classList.remove('hide');
+      } else {
+        element.classList.add('hide');
+      }
+    });
+
+  }, [dimension])
 
   return (
     <>
