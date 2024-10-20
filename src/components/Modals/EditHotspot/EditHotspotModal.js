@@ -31,7 +31,6 @@ export const EditHotspotModal = (props) => {
                 ...currentProduct, variants: currentProduct.variants.map((variant) => variant.uuid !== currentVariant.uuid ? variant : currVar)
             })
         })
-
         props.updateModalState(false);
     }
 

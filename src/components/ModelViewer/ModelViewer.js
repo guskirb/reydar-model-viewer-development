@@ -3,6 +3,7 @@ import "@google/model-viewer";
 
 import { useEffect, useState } from "react";
 import { disableBodyScroll } from "body-scroll-lock";
+import { v4 as uuidv4 } from 'uuid';
 import { useCurrentVariant } from "../../contexts/useCurrentVariant";
 import { useConfig } from "../../contexts/useConfig";
 import { useAction } from "../../contexts/useAction";
@@ -44,9 +45,9 @@ function ModelViewer() {
          if (position) {
             let currVar = {
                ...currentVariant, hotspots: [{
-                  id: (currentVariant.hotspots ? currentVariant.hotspots.length + 1 : 1).toString(),
-                  normal: position.normal,
-                  position: position.position
+                  id: uuidv4(),
+                  position: position.position,
+                  normal: position.normal
                }, ...currentVariant.hotspots]
             };
 
@@ -56,10 +57,9 @@ function ModelViewer() {
                products: config.products.map((product) => product.uuid !== currentProduct.uuid ? product : {
                   ...currentProduct, variants: currentProduct.variants.map((variant) => variant.uuid !== currentVariant.uuid ? variant : currVar)
                })
-            })
+            });
          }
-
-         setAction("explore")
+         setAction("explore");
       }
    }
 
