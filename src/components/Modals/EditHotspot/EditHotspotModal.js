@@ -1,6 +1,6 @@
 import "./EditHotspotModal.scss";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import CloseButton from "../../Buttons/Close/CloseButton"
 import Modal from "../Modal/Modal"
@@ -8,12 +8,18 @@ import { useCurrentVariant } from "../../../contexts/useCurrentVariant";
 import { useCurrentProduct } from "../../../contexts/useCurrentProduct";
 import { useConfig } from "../../../contexts/useConfig";
 import ActionButtonStandard from "../../Buttons/Action/ActionButtonStandard";
+import { HotspotColor } from "../../Buttons/HotspotColor/HotspotColor";
 
 export const EditHotspotModal = (props) => {
-    const [value, setValue] = useState(props.hotspot.content ? props.hotspot.content : "");
-    const [currentVariant, setCurrentVariant] = useCurrentVariant();
     const [config, setConfig] = useConfig();
+    const [currentVariant, setCurrentVariant] = useCurrentVariant();
     const [currentProduct] = useCurrentProduct();
+    const [value, setValue] = useState(props.hotspot.content ? props.hotspot.content : "");
+    const [color, setColor] = useState();
+
+    useEffect(() => {
+        setColor(config["hotspot-color"]);
+    }, [config])
 
     function handleSave(e) {
         e.preventDefault();
@@ -23,6 +29,9 @@ export const EditHotspotModal = (props) => {
                 content: value,
             })
         };
+        const documentRoot = document.documentElement;
+        config["hotspot-color"] = color;
+        documentRoot.style.setProperty("--hotspot-color", color);
 
         setCurrentVariant(currVar);
         setConfig({
@@ -62,7 +71,7 @@ export const EditHotspotModal = (props) => {
 
             <div className="edit-hotspot-modal__list">
                 <form className="edit-hotspot-modal__form">
-                    <label>Hotspot Name</label>
+                    <label>Name</label>
                     <input
                         className="edit-hotspot-modal__input"
                         type="text" value={value}
@@ -71,6 +80,7 @@ export const EditHotspotModal = (props) => {
                     <div className="edit-hotspot-modal__buttons">
                         <ActionButtonStandard label="Save" handleClick={handleSave} />
                         <ActionButtonStandard label="Delete" handleClick={handleDelete} />
+                        <HotspotColor color={color} setColor={setColor} />
                     </div>
                 </form>
             </div>

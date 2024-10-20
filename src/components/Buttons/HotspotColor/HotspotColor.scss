@@ -1,0 +1,19 @@
+@import "../../../base/mixins.scss";
+
+.hotspot-color {
+   @include reset-button;
+   --size: 1.5rem;
+   position: relative;
+   width: var(--size);
+   height: var(--size);
+   border-radius: 50%;
+   margin-left: auto;
+   cursor: pointer;
+
+   &__input {
+      opacity: 0;
+      height: 0;
+      width: 0;
+      transform: translateX(0.75rem);
+   }
+}
