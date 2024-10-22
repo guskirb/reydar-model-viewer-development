@@ -10,12 +10,14 @@ import SelectButton from "../Buttons/Select/SelectButton";
 import BuyButton from "../Buttons/Buy/BuyButton";
 import { AddHotspot } from "../Buttons/AddHotspot/AddHotspot";
 import { DimensionCheckbox } from "../Buttons/DimensionCheckbox/DimensionCheckbox";
+import { BrandColor } from "../Buttons/BrandColor/BrandColor";
 
 const ActionBar = () => {
    return (
       <div className="action-bar">
          <div className="action-bar__left">
             <InformationButton />
+            <BrandColor />
             <DimensionCheckbox />
          </div>
 

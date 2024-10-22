@@ -15,11 +15,7 @@ export const EditHotspotModal = (props) => {
     const [currentVariant, setCurrentVariant] = useCurrentVariant();
     const [currentProduct] = useCurrentProduct();
     const [value, setValue] = useState(props.hotspot.content ? props.hotspot.content : "");
-    const [color, setColor] = useState();
-
-    useEffect(() => {
-        setColor(config["hotspot-color"]);
-    }, [config])
+    const [color, setColor] = useState(config["hotspot-color"]);
 
     function handleSave(e) {
         e.preventDefault();
