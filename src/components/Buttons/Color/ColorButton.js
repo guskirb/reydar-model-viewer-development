@@ -1,7 +1,8 @@
-import { useRef } from "react";
-import "./HotspotColor.scss";
+import "./ColorButton.scss";
 
-export const HotspotColor = (props) => {
+import { useRef } from "react";
+
+export const ColorButton = (props) => {
     const inputRef = useRef(null);
 
     function onChange(e) {

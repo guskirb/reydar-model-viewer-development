@@ -8,7 +8,7 @@ import { useCurrentVariant } from "../../../contexts/useCurrentVariant";
 import { useCurrentProduct } from "../../../contexts/useCurrentProduct";
 import { useConfig } from "../../../contexts/useConfig";
 import ActionButtonStandard from "../../Buttons/Action/ActionButtonStandard";
-import { HotspotColor } from "../../Buttons/HotspotColor/HotspotColor";
+import { ColorButton } from "../../Buttons/Color/ColorButton";
 
 export const EditHotspotModal = (props) => {
     const [config, setConfig] = useConfig();
@@ -83,7 +83,7 @@ export const EditHotspotModal = (props) => {
                     <div className="edit-hotspot-modal__buttons">
                         <ActionButtonStandard label="Save" handleClick={handleSave} />
                         <ActionButtonStandard label="Delete" handleClick={handleDelete} />
-                        <HotspotColor color={color} setColor={setColor} />
+                        <ColorButton color={color} setColor={setColor} />
                     </div>
                 </form>
             </div>
