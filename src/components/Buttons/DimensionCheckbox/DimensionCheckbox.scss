@@ -5,7 +5,9 @@
    height: 25px;
    align-items: center;
    position: relative;
-   padding-left: 35px;
+   padding-left: 30px;
+   font-size: 0.9rem;
+   color: #888888;
    cursor: pointer;
    -webkit-user-select: none;
    -moz-user-select: none;
@@ -24,23 +26,26 @@
    }
 
    &__box {
+      --size: 1.5rem;
       position: absolute;
       top: 0;
       left: 0;
-      height: 25px;
-      width: 25px;
+      height: var(--size);
+      width: var(--size);
+      border-radius: 50%;
       background-color: #ffffff;
-      border-radius: 0.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
       &:after {
+         --size: 1.5rem;
          content: "";
-         width: 60%;
-         height: 60%;
+         width: var(--size);
+         height: var(--size);
+         scale: 0.7;
          background-color: var(--brand-color);
          opacity: 0;
-         border-radius: 0.3rem;
+         border-radius: 50%
       }
    }
 }
