@@ -30,6 +30,7 @@ export const EditHotspotModal = (props) => {
         documentRoot.style.setProperty("--hotspot-color", color);
 
         setCurrentVariant(currVar);
+        console.log(config);
         setConfig({
             ...config,
             products: config.products.map((product) => product.uuid !== currentProduct.uuid ? product : {
