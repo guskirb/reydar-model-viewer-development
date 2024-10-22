@@ -1,0 +1,46 @@
+@import "../../../base/mixins.scss";
+
+.checkbox {
+   display: flex;
+   height: 25px;
+   align-items: center;
+   position: relative;
+   padding-left: 35px;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+
+   &__input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      &:checked + .checkbox__box::after {
+         opacity: 1;
+      }
+   }
+
+   &__box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #ffffff;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:after {
+         content: "";
+         width: 60%;
+         height: 60%;
+         background-color: var(--brand-color);
+         opacity: 0;
+         border-radius: 0.4rem;
+      }
+   }
+}
